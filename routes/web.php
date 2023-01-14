@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VagaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/vaga', [VagaController::class, 'index']);
+// Route::get('/vaga/adicionar', [VagaController::class, 'create']);
+// Route::get('/vaga/editar', [VagaController::class, 'edit']);
+// Route::get('/vaga/show', [VagaController::class, 'show']);
+
+Route::resource('vaga', VagaController::class);
