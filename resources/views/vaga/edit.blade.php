@@ -21,6 +21,42 @@
         </style>
     </head>
     <body class="antialiased">
-        EDIT
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> Ocorreram erros! <br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <form action="{{ route('vaga.update', $vaga->id)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label for="campo-titulo" class="form-label">Título:</label>
+                        <input type="text" id="campo-titulo" name="titulo" class="form-control" placeholder="Titulo" value="{{$vaga->titulo}}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label for="campo-descricao" class="form-label">Descrição:</label>
+                        <input type="text" id="campo-descricao" name="descricao" class="form-control" placeholder="Descricão" value="{{$vaga->descricao}}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label for="campo-status" class="form-label">Status:</label>
+                        <input type="text" id="campo-status" name="status" class="form-control" placeholder="Status" value="{{$vaga->status}}">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
     </body>
 </html>

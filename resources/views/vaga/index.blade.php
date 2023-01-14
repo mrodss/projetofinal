@@ -32,7 +32,7 @@
 
         @foreach ($listaVagas as $vaga)
             <tr>
-                <td>{{++$i}}</td>
+                <td>{{$vaga->id}}</td>
                 <td>{{$vaga->titulo}}</td>
                 <td>{{$vaga->descricao}}</td>
                 <td>{{$vaga->status}}</td>

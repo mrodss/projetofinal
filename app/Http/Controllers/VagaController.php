@@ -37,7 +37,13 @@ class VagaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $storeData = $request->validate([
+            'titulo' => 'required|max:255',
+            'descricao' => 'required|min:3',
+            'status' => 'required'
+        ]);
+        $vaga = Vaga:: create($storeData);
+        return redirect('/vaga')->with('sucess', 'Vaga salva com sucesso');
     }
 
     /**
@@ -57,9 +63,9 @@ class VagaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vaga $vaga)
     {
-        return view('vaga/edit');
+        return view('vaga.edit', compact('vaga'));
     }
 
     /**
@@ -69,9 +75,17 @@ class VagaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Vaga $vaga)
     {
-        //
+        $storeData = $request->validate(
+            [
+                'titulo' => 'required|max:255',
+                'descricao' => 'required|min:3',
+                'status' => 'required'
+            ]
+            );
+            $vaga->update($storeData);
+            return redirect('/vaga')->with('sucess', 'Vaga editada com sucesso');
     }
 
     /**
@@ -80,8 +94,9 @@ class VagaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vaga $vaga)
     {
-        //
+        $vaga->delete();
+        return redirect('/vaga')->with('sucess', 'Vaga apagada com sucesso');
     }
 }
