@@ -36,7 +36,11 @@
                 <td>{{$vaga->titulo}}</td>
                 <td>{{$vaga->descricao}}</td>
                 <td>{{$vaga->status}}</td>
-                <td></td>
+                <td>
+                    <a class="btn btn-info" href="{{ route('vaga.show', $vaga->id)}}">Visualizar</a>
+                    <a class="btn btn-primary" href="{{ route('vaga.edit', $vaga->id)}}">Editar</a>
+                    <form action="{{route('vaga.destroy', $vaga->id)}}" method="POST"> @csrf @method('DELETE')<button type="submit" class="btn brn-danger">Apagar</button></form>
+                </td>
             </tr>
         @endforeach
         </table>
