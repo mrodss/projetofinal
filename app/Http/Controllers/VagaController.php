@@ -16,7 +16,7 @@ class VagaController extends Controller
     {
         $quantidadeDeItensAExibir = 5;
         $listaVagas = Vaga::latest()->paginate(5);
-        return view('vaga/index', compact('listaVagas'))->with('i', (request()->input('page', 1) -1) * $quantidadeDeItensAExibir);
+        return view('vaga/index', compact('listaVagas'))->with('i', (request()->input('page', 1) - 1) * $quantidadeDeItensAExibir);
     }
 
     /**
@@ -42,7 +42,7 @@ class VagaController extends Controller
             'descricao' => 'required|min:3',
             'status' => 'required'
         ]);
-        $vaga = Vaga:: create($storeData);
+        $vaga = Vaga::create($storeData);
         return redirect('/vaga')->with('sucess', 'Vaga salva com sucesso');
     }
 
@@ -54,7 +54,7 @@ class VagaController extends Controller
      */
     public function show(Vaga $vaga)
     {
-        return view ('vaga/show', compact('vaga'));
+        return view('vaga/show', compact('vaga'));
     }
 
     /**
@@ -83,9 +83,9 @@ class VagaController extends Controller
                 'descricao' => 'required|min:3',
                 'status' => 'required'
             ]
-            );
-            $vaga->update($storeData);
-            return redirect('/vaga')->with('sucess', 'Vaga editada com sucesso');
+        );
+        $vaga->update($storeData);
+        return redirect('/vaga')->with('sucess', 'Vaga editada com sucesso');
     }
 
     /**

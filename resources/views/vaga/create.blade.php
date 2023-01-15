@@ -1,17 +1,18 @@
 @extends('layout')
 @section('content')
-    <body class="antialiased">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> Ocorreram erros! <br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <form action="{{route('vaga.store')}}" method="POST">
+
+<body class="antialiased">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> Ocorreram erros! <br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{route('vaga.store')}}" method="POST">
         @csrf
         <div class="row">
             <div class="col-lg12 margin-tb">
@@ -19,8 +20,7 @@
                     <h2>Criar Página</h2>
                 </div>
                 <div class="pull-rigth">
-                    <a class="btn btn-primary"
-                    href="{{route('vaga.index')}}">Voltar</a>
+                    <a class="btn btn-primary" href="{{route('vaga.index')}}">Voltar</a>
                 </div>
             </div>
         </div>
@@ -46,7 +46,6 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Salvar</button>
-        </div>
-        </form>
-        @endsection
-
+            </div>
+    </form>
+    @endsection
