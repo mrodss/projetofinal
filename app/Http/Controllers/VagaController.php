@@ -54,7 +54,7 @@ class VagaController extends Controller
      */
     public function show(Vaga $vaga)
     {
-        return view('vaga/show', compact('vaga'));
+        return view ('vaga/show', compact('vaga'));
     }
 
     /**

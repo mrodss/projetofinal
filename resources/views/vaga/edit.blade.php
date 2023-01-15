@@ -21,7 +21,7 @@
                     </div>
                     <div class="pull-rigth">
                         <a class="btn btn-primary"
-                        href="{{route(vaga.index)}}">Voltar</a>
+                        href="{{route('vaga.index')}}">Voltar</a>
                     </div>
                 </div>
             </div>
